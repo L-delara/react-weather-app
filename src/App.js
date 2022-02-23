@@ -8,9 +8,9 @@ export default function App() {
       <br />
       An{" "}
       <a href="https://github.com/L-delara/react-weather-app.git">
-        Open-source code
+        open-source code
       </a>{" "}
-      by Ligia De Lara. 😊
+      by Ligia De Lara 😊
     </div>
   );
 }
