@@ -1,7 +1,7 @@
 import "./App.css";
 import Search from "./Search.js";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
       <Search />
@@ -14,5 +14,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
