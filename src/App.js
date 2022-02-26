@@ -1,11 +1,11 @@
 import "./App.css";
-import Search from "./Search.js";
+import Weather from "./Weather.js";
 
 export default function App() {
   return (
     <div className="App">
       <div className="container">
-        <Search />
+        <Weather />
         <br />
         An{" "}
         <a href="https://github.com/L-delara/react-weather-app.git">
