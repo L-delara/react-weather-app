@@ -1,31 +1,51 @@
-import React from "react";
-import WeatherIcon from "./WeatherIcon.js";
+import React, { useState, useEffect } from "react";
 import "./WeatherForecast.css";
-import Axios from "axios";
+import axios from "axios";
+import WeatherForecastDay from "./WeatherForecastDay";
 
 export default function WeatherForecast(props) {
+  let [loaded, setLoaded] = useState(false);
+  let [forecast, setForecast] = useState(null);
+
+  useEffect(() => {
+    setLoaded(false);
+  }, [props.coordinates]);
+
   function handleResponse(response) {
-    console.log(response.data);
+    setForecast(response.data.daily);
+    setLoaded(true);
   }
 
-  let apiKey = "4c9b53e4f8f5eb00df5915bdca340605";
-  let latitude = props.coordinates.lat;
-  let longitude = props.coordinates.lon;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-  Axios.get(apiUrl).then(handleResponse);
+  function load() {
+    let apiKey = "4c9b53e4f8f5eb00df5915bdca340605";
+    let longitude = props.coordinates.lon;
+    let latitude = props.coordinates.lat;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
 
-  return (
-    <div className="WeatherForecast">
-      <div className="row">
-        <div className="col">
-          <div className="WeatherForecastDay">MON</div>
-          <WeatherIcon code="09d" size={30} />
-          <div className="WeatherForecast-temp">
-            <span className="WeatherForecast-temp-max">20° |</span>
-            <span className="WeatherForecast-temp-min"> 15°</span>
-          </div>
+    axios.get(apiUrl).then(handleResponse);
+  }
+
+  if (loaded) {
+    return (
+      <div className="WeatherForecast">
+        <div className="row">
+          {forecast.map(function (dailyForecast, index) {
+            if (index < 5) {
+              return (
+                <div className="col" key={index}>
+                  <WeatherForecastDay data={dailyForecast} />
+                </div>
+              );
+            } else {
+              return null;
+            }
+          })}
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    load();
+
+    return null;
+  }
 }

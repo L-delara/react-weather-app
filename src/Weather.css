@@ -2,14 +2,14 @@
   border: 1px solid #028b67ce;
   font-family: arial, sans-serif;
   padding: 16px;
-  max-width: 650px;
-  border-radius: 5px;
+  max-width: 600px;
+  border-radius: 6px;
 }
 
 .Weather h1 {
   color: #04966fe3;
   margin: 20px 0 0 0;
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 100;
   line-height: 28px;
 }
@@ -36,13 +36,11 @@
   font-weight: 400;
   margin-left: 10px;
 }
-.Weather canvas {
-  margin: 10px auto;
-}
+
 .Weather .unit {
   color: rgba(0, 80, 112, 0.637);
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 300;
   position: relative;
   line-height: 1;
   top: -34px;

@@ -13,15 +13,24 @@ export default function App() {
           <a
             href="https://github.com/L-delara/react-weather-app.git"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             open-source code
+          </a>{" "}
+          hosted on{" "}
+          <a
+            href="https://affectionate-mayer-a17386.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {" "}
+            Netlify
           </a>{" "}
           by
           <a
             href="https://www.linkedin.com/in/ligia-de-lara-01627873/"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             {" "}
             Ligia De Lara
